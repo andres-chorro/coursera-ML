@@ -19,14 +19,12 @@ grad = zeros(size(theta));
 %
 % Note: grad should have the same dimensions as theta
 %
+firstTerm = -y' * log(sigmoid(theta' * X'))';
+secondTerm = (1 - y') * log(1 - (sigmoid(theta' * X')))';
+theta(1) = 0;
+ %thirdTerm = (lambda/(2 * m)) * (theta * theta');
 
-
-
-
-
-
-
-
+J =  (1/m) * firstTerm - secondTerm;
 % =============================================================
 
 end
