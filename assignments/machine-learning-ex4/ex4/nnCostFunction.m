@@ -75,7 +75,12 @@ Theta2(:,1) = [];
 regTerm = (lambda / (2*m)) * (sum(sum((Theta1 .^ 2))) + sum(sum(Theta2 .^ 2)));
 J = J + regTerm;
 
-
+d3 = a3 - y_matrix;
+d2 = (d3 * Theta2) .* sigmoidGradient(z2);
+Delta1 = d2' * a1;
+Delta2 = d3' * a2;
+Theta1_grad = Delta1 .* (1/m);
+Theta2_grad = Delta2 .* (1/m);
 
 
 % -------------------------------------------------------------
