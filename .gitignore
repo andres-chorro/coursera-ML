@@ -1,3 +1,5 @@
 slides/*
 *.zip
 *.pdf
+*/octave-workspace
+*/token.mat
