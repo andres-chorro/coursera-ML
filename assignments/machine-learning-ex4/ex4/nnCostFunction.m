@@ -82,6 +82,11 @@ Delta2 = d3' * a2;
 Theta1_grad = Delta1 .* (1/m);
 Theta2_grad = Delta2 .* (1/m);
 
+Theta2 = [zeros(size(Theta2, 1), 1) Theta2] .* (lambda/m);
+Theta1 = [zeros(size(Theta1, 1), 1) Theta1] .* (lambda/m);
+Theta1_grad += Theta1;
+Theta2_grad += Theta2;
+
 
 % -------------------------------------------------------------
 
