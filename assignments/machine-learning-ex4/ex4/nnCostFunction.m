@@ -70,6 +70,11 @@ z3 = a2 * Theta2';
 a3 = sigmoid(z3);
 J = (1/m) * sum(sum((-y_matrix .* log(a3)) - ((1-y_matrix) .* log(1 - a3))));
 
+Theta1(:,1) = [];
+Theta2(:,1) = [];
+regTerm = (lambda / (2*m)) * (sum(sum((Theta1 .^ 2))) + sum(sum(Theta2 .^ 2)));
+J = J + regTerm;
+
 
 
 
