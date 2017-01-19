@@ -30,8 +30,7 @@ costRegTerm = (lambda/(2*m)) * sum(theta.^2);
 J = J + costRegTerm;
 
 gradRegTerm = (lambda/m) * theta;
-theta = theta + gradRegTerm;
-
+grad = grad + gradRegTerm;
 
 
 % =========================================================================
