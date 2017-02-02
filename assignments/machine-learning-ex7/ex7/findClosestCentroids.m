@@ -26,12 +26,6 @@ for i = 1:K
 	distance(:,i) = sum(bsxfun(fun, X, centroids(i,:)),2);
 end
 [~,idx] = min(distance');
-
-
-
-
-
-
 % =============================================================
 
 end
