@@ -40,6 +40,7 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
+% Not regularized
 predictedRatings = X * Theta';
 ratingsError = (predictedRatings - Y);
 error_factor = ratingsError .* R;
@@ -47,10 +48,14 @@ J = (1/2) * sum(sum(error_factor .^ 2));
 X_grad = error_factor * Theta;
 Theta_grad = error_factor' * X;
 
+% cost regularization
 userRegTerm = (lambda / 2) * sum(sum(Theta .^ 2));
 movieRegTerm = (lambda / 2) * sum(sum(X .^ 2));
 J = J + userRegTerm + movieRegTerm;
 
+% gradient regularization
+X_grad = X_grad + (lambda * X);
+Theta_grad = Theta_grad + (lambda * Theta);
 
 % =============================================================
 
